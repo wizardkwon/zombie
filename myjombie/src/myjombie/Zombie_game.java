@@ -22,45 +22,12 @@ public class Zombie_game {
 		zom.setPos(zPos);
 		boss.setPos(bPos);
 
-		int map[] = new int[10];
-		int h = -1, z = -1, b = -1;
 		boolean check = false;
-		int deadZom = 0;
-		while (!check) {
-			for (int i = 0; i < map.length; i++) {
-				if (i == hPos) {
-					map[i] = hPos;
-				} else if (i == zPos) {
-					if (zom.getHp() == 0) {
-						map[z] = 0;
-					} else {
-						map[i] = zPos;
-					}
-				} else if (i == bPos) {
-					if (boss.getHp() == 0) {
-						map[b] = 0;
-					} else {
-						map[i] = bPos;
-					}
-				}
-			}
-			for (int i = 0; i < map.length; i++) {
-				if (map[i] == 0) {
-					System.out.print("__");
-				} else if (map[i] == hPos) {
-					System.out.print("¿Ê");
-					h = i;
-				} else if (map[i] == zPos) {
-					System.out.print("Z");
-					z = i;
-				} else if (map[i] == bPos) {
-					System.out.print("B");
-					b = i;
-				}
-			}
 	
-			map[h] = 0;
-			System.out.println();
+		while (!check) {
+		
+			System.out.println("ÇöÀç Áö±¸´Â ¾Ë ¼ö ¾ø´Â ¹ÙÀÌ·¯½º·Î ÀÎÇØ ¼¼°èÀÎ±¸ÀÇ 30%°¡ Á×¾ú°í ");
+			System.out.println("");
 			hero.setPos(hPos);
 			System.out.println("[1] ÀÌµ¿ , [2] È¸º¹ÇÏ±â (º¸À¯¹°¾à: " + hero.getPotion() + ")");
 			int move = scan.nextInt();
@@ -93,27 +60,7 @@ public class Zombie_game {
 						System.out.println("[1]°ø°ÝÇÏ±â  [2] È¸º¹ÇÏ±â (º¸À¯¹°¾à:" + hero.getPotion() + ")");
 						int sel = scan.nextInt();
 						if (sel == 1) {
-							int count = 5;
-							while (count > 0) {
-								try {
-									if (count == 5) {
-										System.out.println("___¿Ê¡à¡à¡×¡ë¡ë¢¹____Z");
-									} else if (count == 4) {
-										System.out.println("_______¿Ê¡à¡à¡×¡ë¡ë¢¹_Z");
-									} else if (count == 3) {
-										System.err.println("__________¿Ê¡à¡à¡×¡ëZ¡ë¢¹  zom: 'Å©¾Æ¾Ç!!!'");
-									} else if (count == 2) {
-										System.out.println("______¿Ê¡à¡à¡×¡ë¡ë¢¹__Z");
-									} else if (count == 1) {
-										System.out.println("____¿Ê¡à¡à¡×¡ë¡ë¢¹_____Z");
-									}
-									Thread.sleep(300);
-								} catch (Exception e) {
-									e.printStackTrace();
-								}
-								count--;
-							}
-
+							
 							hero.attack(zom);
 							zom.attack(hero);
 							if (zom.getHp() == 0) {
@@ -139,26 +86,7 @@ public class Zombie_game {
 						if (sel == 1) {
 							hero.attack(boss);
 							boss.attack(hero);
-							int count = 5;
-							while (count > 0) {
-								try {
-									if (count == 5) {
-										System.out.println("___¿Ê¡à¡à¡×¡ë¡ë¢¹____B");
-									} else if (count == 4) {
-										System.out.println("_______¿Ê¡à¡à¡×¡ë¡ë¢¹_B");
-									} else if (count == 3) {
-										System.err.println("__________¿Ê¡à¡à¡×¡ëB¡ë¢¹  zom: 'Å©¾Æ¾Ç!!!'");
-									} else if (count == 2) {
-										System.out.println("______¿Ê¡à¡à¡×¡ë¡ë¢¹__B");
-									} else if (count == 1) {
-										System.out.println("____¿Ê¡à¡à¡×¡ë¡ë¢¹_____B");
-									}
-									Thread.sleep(300);
-								} catch (Exception e) {
-									e.printStackTrace();
-								}
-								count--;
-							}
+						
 							if (boss.getHp() == 0) {
 								break;
 							}
@@ -177,7 +105,7 @@ public class Zombie_game {
 					System.out.println("step: " + step);
 					for (int i = 0; i < 10; i++) {
 						if (step == 1) {
-							System.out.println(" HERO : Á¶¿ëÇÑ °ñ¸ñÀÌ±º..");
+							System.out.println(" HERO : ½Î´ÃÇÏ´Ù....");
 							break;
 						} else if (step == 3 || step == 5) {
 							System.out.println(" HERO : À½»êÇÑ ±â¿îÀÌ ´À²¸Áø´Ù...");
