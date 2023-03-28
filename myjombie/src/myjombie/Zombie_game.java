@@ -24,9 +24,25 @@ public class Zombie_game {
 
 		boolean check = false;
 	
+		String str = "현재 지구는 알 수 없는 바이러스로 인해 "
+				+ "\n세계인구의 30%가 죽었고 단 5% 의 사람만이 살고있다."
+				+ "\n 그렇다면...나머지 65% 는..."
+				+ "\n 모두 알 수 없는 괴물이 되었다.."
+				+ "\n --2054년 2월28일-- \n\n"
+				+ "\n [현재: 2055월 1월23일] "
+				+ "\n [당신은 괴물들을 모두 죽이고 백신을 구해야합니다.] ";
+		int x = 0;
+		try {
+			for (int i = 1; i < str.length() + 1; i++) {
+				System.out.print(str.substring(x, i));
+				Thread.sleep(100);
+				x++;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		while (!check) {
-		
-			System.out.println("현재 지구는 알 수 없는 바이러스로 인해 세계인구의 30%가 죽었고 ");
+
 			System.out.println("");
 			hero.setPos(hPos);
 			System.out.println("[1] 이동 , [2] 회복하기 (보유물약: " + hero.getPotion() + ")");
